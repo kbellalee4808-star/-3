@@ -3,89 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>프라이빗 크루즈 계산기</title>
+    <title>프라이빗 크루즈 클럽</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .bg-firenze { background-color: #A0522D; }
         .bg-navy-deep { background-color: #001F3F; }
         .text-firenze { color: #8B4513; }
-        .card-active { border: 3px solid #FFD700; transform: scale(1.02); }
+        .calc-box { border: 2px solid #E5E7EB; transition: all 0.3s ease; }
+        .calc-box.active { border-color: #A0522D; background-color: #FFF9F5; }
     </style>
 </head>
-<body class="bg-[#FFFBF8] text-gray-900 pb-20">
+<body class="bg-[#FFFBF8] text-gray-900">
 
-    <section class="max-w-4xl mx-auto pt-16 px-6">
-        <div class="bg-white rounded-3xl shadow-2xl p-8 border border-orange-100">
-            <h2 class="text-2xl font-bold text-center mb-8 text-firenze">🚢 내 크루즈 여행 견적 뽑아보기</h2>
+    <section class="max-w-4xl mx-auto py-12 px-6">
+        <div class="bg-white rounded-3xl shadow-xl p-8 border border-orange-100">
+            <h2 class="text-2xl font-bold text-center mb-6 text-firenze">🚢 내 크루즈 여행 견적 계산기</h2>
             
-            <div class="space-y-6">
-                <div>
-                    <label class="block text-sm font-bold mb-3 text-gray-600">1. 여행 인원 선택</label>
-                    <select id="people" onchange="calculate()" class="w-full p-4 rounded-xl border border-gray-200 bg-gray-50 focus:ring-2 focus:ring-orange-500 outline-none">
-                        <option value="1">1인 (혼자만의 여유)</option>
-                        <option value="2" selected>2인 (동반자 1명)</option>
-                        <option value="3">3인 (가족 여행)</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-bold mb-3 text-gray-600">2. 멤버십 혜택 적용</label>
-                    <div class="grid grid-cols-2 gap-4">
-                        <button onclick="setMembership(false)" id="btn-non" class="p-4 rounded-xl border text-sm font-bold bg-gray-50">일반 비회원</button>
-                        <button onclick="setMembership(true)" id="btn-mem" class="p-4 rounded-xl border text-sm font-bold card-active bg-yellow-50">프라이빗 회원</button>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">인원 선택</label>
+                        <select id="peopleCount" onchange="updateCalc()" class="w-full p-3 rounded-lg border focus:ring-2 focus:ring-orange-400 outline-none">
+                            <option value="1">1인 (싱글)</option>
+                            <option value="2" selected>2인 (커플/친구)</option>
+                            <option value="3">3인 (가족)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">멤버십 적용 여부</label>
+                        <div class="flex gap-2">
+                            <button id="memBtn" onclick="setMember(true)" class="flex-1 py-3 rounded-lg font-bold calc-box active">프라이빗 회원</button>
+                            <button id="nonMemBtn" onclick="setMember(false)" class="flex-1 py-3 rounded-lg font-bold calc-box">일반 비회원</button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="mt-10 p-6 bg-navy-deep rounded-2xl text-center text-white">
-                <p class="text-blue-200 text-sm mb-2">예상 총 결제 금액</p>
-                <div class="text-4xl font-black text-yellow-400"><span id="total-price">350</span>만원</div>
-                <p class="mt-3 text-[10px] text-blue-300 opacity-70">* 지중해 8일 일정 기준이며, 항공권은 실시간 최저가로 안내됩니다.</p>
+                <div class="bg-navy-deep rounded-2xl p-6 text-white flex flex-col justify-center items-center">
+                    <p class="text-blue-300 text-sm mb-1">예상 총 결제 금액</p>
+                    <div class="text-4xl font-black text-yellow-400"><span id="resultPrice">350</span>만원</div>
+                    <p class="mt-4 text-[10px] text-blue-200 opacity-60 text-center">
+                        * 지중해 8일 정통 크루즈 기준<br>
+                        * 항공권 및 지상비 별도 실비 정산
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="max-w-6xl mx-auto py-16 px-6">
-        <h2 class="text-2xl font-bold text-center mb-10 text-firenze">상세 일정 및 혜택 보기</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div onclick="location.href='non-member.html'" class="cursor-pointer bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition text-center border border-gray-100">
-                <div class="text-3xl mb-4">🚶</div>
-                <h3 class="font-bold mb-2">비회원 상세</h3>
-                <p class="text-gray-500 text-xs">일반 패키지 구성 및<br>포함 내역 확인</p>
+    <section class="max-w-4xl mx-auto py-12 px-6">
+        <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100">
+            <div class="bg-firenze p-6 text-center text-white">
+                <h3 class="text-xl font-bold">서지중해 정통 크루즈 8일 일정</h3>
+                <p class="text-sm opacity-80">바르셀로나부터 몰타까지의 예술 항해</p>
             </div>
+            
+            <div class="p-8">
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4 border-b pb-3">
+                        <span class="bg-orange-100 text-firenze px-2 py-1 rounded text-xs font-bold">1일차</span>
+                        <p class="text-sm">바르셀로나, 스페인 (승선)</p>
+                    </div>
+                    <div class="flex items-start gap-4 border-b pb-3">
+                        <span class="bg-gray-100 px-2 py-1 rounded text-xs font-bold">2일차</span>
+                        <p class="text-sm">마르세유 (프로방스), 프랑스</p>
+                    </div>
+                    <div class="flex items-start gap-4 border-b pb-3">
+                        <span class="bg-gray-100 px-2 py-1 rounded text-xs font-bold">3일차</span>
+                        <p class="text-sm">제노바 (포르토피노), 이탈리아</p>
+                    </div>
+                    <div class="flex items-start gap-4 border-b pb-3">
+                        <span class="bg-gray-100 px-2 py-1 rounded text-xs font-bold">4일차</span>
+                        <p class="text-sm">치비타베키아 (로마), 이탈리아</p>
+                    </div>
+                    <div class="flex items-start gap-4 border-b pb-3">
+                        <span class="bg-gray-100 px-2 py-1 rounded text-xs font-bold">5일차</span>
+                        <p class="text-sm">메시나 (타오르미나), 시칠리아</p>
+                    </div>
+                    <div class="flex items-start gap-4 border-b pb-3">
+                        <span class="bg-gray-100 px-2 py-1 rounded text-xs font-bold">6일차</span>
+                        <p class="text-sm">발레타, 몰타</p>
+                    </div>
+                    <div class="flex items-start gap-4 border-b pb-3 text-gray-400">
+                        <span class="bg-gray-50 px-2 py-1 rounded text-xs font-bold">7-8일차</span>
+                        <p class="text-sm">전일 해상 및 바르셀로나 귀국</p>
+                    </div>
+                </div>
 
-            <div onclick="location.href='member.html'" class="cursor-pointer bg-yellow-400 p-6 rounded-2xl shadow-lg hover:scale-105 transition text-center border-2 border-yellow-500">
-                <div class="text-3xl mb-4">👑</div>
-                <h3 class="font-bold text-[#8B4513] mb-2">회원 전용 상세</h3>
-                <p class="text-[#8B4513] text-xs font-medium">바르셀로나-로마-제노바<br>풀코스 일정 확인</p>
-            </div>
-
-            <div onclick="location.href='reward.html'" class="cursor-pointer bg-blue-600 p-6 rounded-2xl shadow-md hover:shadow-xl transition text-center text-white">
-                <div class="text-3xl mb-4">🎁</div>
-                <h3 class="font-bold mb-2">리워드 활용법</h3>
-                <p class="text-blue-100 text-xs">100만원대로 떠나는<br>포인트 적립 노하우</p>
+                <div class="mt-10">
+                    <p class="text-xs font-bold text-gray-400 mb-4 text-center">운항 루트 지도</p>
+                    <img src="https://images.unsplash.com/photo-1541370976299-4d24ebbc9077?auto=format&fit=crop&w=1200" class="w-full rounded-xl shadow-inner">
+                </div>
             </div>
         </div>
     </section>
+
+    <div class="fixed bottom-6 left-0 right-0 px-6 z-50">
+        <button onclick="window.location.href='https://open.kakao.com/o/본인링크'" class="w-full max-w-md mx-auto block bg-yellow-400 text-firenze py-4 rounded-full font-black text-lg shadow-2xl text-center border-2 border-white">
+            지금 0원에 상담 신청하기
+        </button>
+    </div>
 
     <script>
         let isMember = true;
-        
-        function setMembership(val) {
+
+        function setMember(val) {
             isMember = val;
-            document.getElementById('btn-mem').classList.toggle('card-active', val);
-            document.getElementById('btn-non').classList.toggle('card-active', !val);
-            document.getElementById('btn-mem').classList.toggle('bg-yellow-50', val);
-            document.getElementById('btn-non').classList.toggle('bg-yellow-50', !val);
-            calculate();
+            document.getElementById('memBtn').classList.toggle('active', val);
+            document.getElementById('nonMemBtn').classList.toggle('active', !val);
+            updateCalc();
         }
 
-        function calculate() {
-            const people = document.getElementById('people').value;
-            const basePrice = isMember ? 350 : 790;
-            const total = basePrice * people;
-            document.getElementById('total-price').innerText = total.toLocaleString();
-        }
-    </script>
-</body>
-</html>
+        function updateCalc() {
+            const count = document.getElementById('peopleCount').value;
+            const pricePerPerson = isMember ? 350 : 7

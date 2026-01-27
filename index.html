@@ -1,118 +1,90 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>프라이빗 크루즈 클럽</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .bg-firenze { background-color: #A0522D; }
-        .bg-navy-deep { background-color: #001F3F; }
-        .text-firenze { color: #8B4513; }
-        .calc-box { border: 2px solid #E5E7EB; transition: all 0.3s ease; }
-        .calc-box.active { border-color: #A0522D; background-color: #FFF9F5; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Private Cruise Club</title>
+
+  <!-- Tailwind (디자인 도구) -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[#FFFBF8] text-gray-900">
 
-    <section class="max-w-4xl mx-auto py-12 px-6">
-        <div class="bg-white rounded-3xl shadow-xl p-8 border border-orange-100">
-            <h2 class="text-2xl font-bold text-center mb-6 text-firenze">🚢 내 크루즈 여행 견적 계산기</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-6">
-                    <div>
-                        <label class="block text-sm font-bold mb-2">인원 선택</label>
-                        <select id="peopleCount" onchange="updateCalc()" class="w-full p-3 rounded-lg border focus:ring-2 focus:ring-orange-400 outline-none">
-                            <option value="1">1인 (싱글)</option>
-                            <option value="2" selected>2인 (커플/친구)</option>
-                            <option value="3">3인 (가족)</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold mb-2">멤버십 적용 여부</label>
-                        <div class="flex gap-2">
-                            <button id="memBtn" onclick="setMember(true)" class="flex-1 py-3 rounded-lg font-bold calc-box active">프라이빗 회원</button>
-                            <button id="nonMemBtn" onclick="setMember(false)" class="flex-1 py-3 rounded-lg font-bold calc-box">일반 비회원</button>
-                        </div>
-                    </div>
-                </div>
+<body class="bg-white text-gray-900">
 
-                <div class="bg-navy-deep rounded-2xl p-6 text-white flex flex-col justify-center items-center">
-                    <p class="text-blue-300 text-sm mb-1">예상 총 결제 금액</p>
-                    <div class="text-4xl font-black text-yellow-400"><span id="resultPrice">350</span>만원</div>
-                    <p class="mt-4 text-[10px] text-blue-200 opacity-60 text-center">
-                        * 지중해 8일 정통 크루즈 기준<br>
-                        * 항공권 및 지상비 별도 실비 정산
-                    </p>
-                </div>
-            </div>
-        </div>
+  <main class="max-w-md mx-auto px-6 py-12">
+
+    <!-- ================= 상단 소개 ================= -->
+    <section class="mb-10">
+      <p class="text-sm text-gray-400 mb-3">PRIVATE CRUISE CLUB</p>
+      <h1 class="text-2xl font-bold leading-snug">
+        크루즈를 타는 여행이 아니라<br/>
+        크루즈로 사는 선택
+      </h1>
+      <p class="mt-4 text-gray-500 text-sm leading-relaxed">
+        같은 크루즈,<br/>
+        누군가는 정가로 예약하고<br/>
+        누군가는 멤버십으로 다르게 갑니다.
+      </p>
     </section>
 
-    <section class="max-w-4xl mx-auto py-12 px-6">
-        <div class="bg-white rounded-3xl shadow-lg overflow-hidden border border-gray-100">
-            <div class="bg-firenze p-6 text-center text-white">
-                <h3 class="text-xl font-bold">서지중해 정통 크루즈 8일 일정</h3>
-                <p class="text-sm opacity-80">바르셀로나부터 몰타까지의 예술 항해</p>
-            </div>
-            
-            <div class="p-8">
-                <div class="space-y-4">
-                    <div class="flex items-start gap-4 border-b pb-3">
-                        <span class="bg-orange-100 text-firenze px-2 py-1 rounded text-xs font-bold">1일차</span>
-                        <p class="text-sm">바르셀로나, 스페인 (승선)</p>
-                    </div>
-                    <div class="flex items-start gap-4 border-b pb-3">
-                        <span class="bg-gray-100 px-2 py-1 rounded text-xs font-bold">2일차</span>
-                        <p class="text-sm">마르세유 (프로방스), 프랑스</p>
-                    </div>
-                    <div class="flex items-start gap-4 border-b pb-3">
-                        <span class="bg-gray-100 px-2 py-1 rounded text-xs font-bold">3일차</span>
-                        <p class="text-sm">제노바 (포르토피노), 이탈리아</p>
-                    </div>
-                    <div class="flex items-start gap-4 border-b pb-3">
-                        <span class="bg-gray-100 px-2 py-1 rounded text-xs font-bold">4일차</span>
-                        <p class="text-sm">치비타베키아 (로마), 이탈리아</p>
-                    </div>
-                    <div class="flex items-start gap-4 border-b pb-3">
-                        <span class="bg-gray-100 px-2 py-1 rounded text-xs font-bold">5일차</span>
-                        <p class="text-sm">메시나 (타오르미나), 시칠리아</p>
-                    </div>
-                    <div class="flex items-start gap-4 border-b pb-3">
-                        <span class="bg-gray-100 px-2 py-1 rounded text-xs font-bold">6일차</span>
-                        <p class="text-sm">발레타, 몰타</p>
-                    </div>
-                    <div class="flex items-start gap-4 border-b pb-3 text-gray-400">
-                        <span class="bg-gray-50 px-2 py-1 rounded text-xs font-bold">7-8일차</span>
-                        <p class="text-sm">전일 해상 및 바르셀로나 귀국</p>
-                    </div>
-                </div>
-
-                <div class="mt-10">
-                    <p class="text-xs font-bold text-gray-400 mb-4 text-center">운항 루트 지도</p>
-                    <img src="https://images.unsplash.com/photo-1541370976299-4d24ebbc9077?auto=format&fit=crop&w=1200" class="w-full rounded-xl shadow-inner">
-                </div>
-            </div>
-        </div>
+    <!-- ================= 이미지 ================= -->
+    <section class="mb-10">
+      <img 
+        src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900"
+        alt="Cruise"
+        class="rounded-xl"
+      />
     </section>
 
-    <div class="fixed bottom-6 left-0 right-0 px-6 z-50">
-        <button onclick="window.location.href='https://open.kakao.com/o/본인링크'" class="w-full max-w-md mx-auto block bg-yellow-400 text-firenze py-4 rounded-full font-black text-lg shadow-2xl text-center border-2 border-white">
-            지금 0원에 상담 신청하기
-        </button>
-    </div>
+    <!-- ================= 크루즈 계산기 ================= -->
+    <section class="bg-gray-50 rounded-2xl p-6 mb-12">
+      <h2 class="text-lg font-bold mb-6 text-center">
+        나의 크루즈 예상 비용
+      </h2>
 
-    <script>
-        let isMember = true;
+      <!-- 인원 -->
+      <div class="mb-6">
+        <label class="block text-sm text-gray-500 mb-2">
+          여행 인원
+        </label>
+        <select 
+          id="people"
+          onchange="calculate()"
+          class="w-full p-4 rounded-xl border focus:outline-none">
+          <option value="1">1명</option>
+          <option value="2" selected>2명</option>
+          <option value="3">3명</option>
+          <option value="4">4명</option>
+        </select>
+      </div>
 
-        function setMember(val) {
-            isMember = val;
-            document.getElementById('memBtn').classList.toggle('active', val);
-            document.getElementById('nonMemBtn').classList.toggle('active', !val);
-            updateCalc();
-        }
+      <!-- 멤버십 -->
+      <div class="mb-8">
+        <label class="block text-sm text-gray-500 mb-2">
+          예약 방식
+        </label>
+        <div class="flex gap-3">
+          <button 
+            id="memberBtn"
+            onclick="setMember(true)"
+            class="flex-1 py-3 rounded-xl bg-gray-900 text-white font-semibold">
+            멤버십
+          </button>
+          <button 
+            id="nonMemberBtn"
+            onclick="setMember(false)"
+            class="flex-1 py-3 rounded-xl border text-gray-500 font-semibold">
+            일반 예약
+          </button>
+        </div>
+      </div>
 
-        function updateCalc() {
-            const count = document.getElementById('peopleCount').value;
-            const pricePerPerson = isMember ? 350 : 7
+      <!-- 결과 -->
+      <div class="text-center">
+        <p class="text-sm text-gray-400 mb-1">
+          1인 기준 예상 크루즈 비용
+        </p>
+        <p class="text-3xl font-bold">
+          <span id="price">350</span>만원
+        </p>
+        <p class="text-xs text-gray-400 mt-3 leading

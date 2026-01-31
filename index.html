@@ -5,489 +5,143 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>프라이빗 크루즈 여행</title>
   <script src="https://cdn.tailwindcss.com"></script>
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>프라이빗 크루즈 여행</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- 👇 여기부터 추가 -->
   <style>
     .hero {
       height: 100vh;
-      background-image: url('https://images.unsplash.com/photo-1544551763-cedf2e1a1f5a');
+      background-image: url('images/mega-cruise-200k.jpg');
       background-size: cover;
       background-position: center;
       position: relative;
     }
-
     .hero-overlay {
       position: absolute;
       inset: 0;
       background: rgba(0,0,0,0.45);
-      color: white;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 20px;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    .hero .sub {
-      font-size: 1.4rem;
-      margin-top: 20px;
-    }
-
-    .hero .desc {
-      font-size: 1.1rem;
-      margin-top: 12px;
-      opacity: 0.9;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-      .hero .sub {
-        font-size: 1.2rem;
-      }
+      color: white;
+      padding: 24px;
     }
   </style>
-  <!-- 👆 여기까지 -->
 </head>
-  
+
 <body class="bg-white text-gray-900">
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-overlay">
-    <h1>
+    <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
       패키지는 답답하고<br>
       자유여행은 불안할 때
     </h1>
-    <p class="sub">
+    <p class="mt-6 text-xl">
       짐 풀고, 다시 쌀 필요 없는 여행
     </p>
-    <p class="desc">
+    <p class="mt-4 text-base opacity-90">
       20만 톤 이상 메가 크루즈에서<br>
       도시는 자유롭게, 숙소는 그대로
     </p>
   </div>
 </section>
 
-
-<!-- 여행지 -->
-<!-- 추천 크루즈 루트 -->
+<!-- 추천 루트 -->
 <section class="max-w-6xl mx-auto px-6 py-24">
-  <h2 class="text-3xl font-bold mb-14 text-center">추천 크루즈 루트</h2>
+  <h2 class="text-3xl font-bold text-center mb-16">추천 크루즈 루트</h2>
 
   <div class="grid md:grid-cols-3 gap-12">
-
-    <!-- 지중해 크루즈 -->
-    <a href="mediterranean.html" class="block text-center hover:opacity-90 transition">
-      <img
-        src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=900"
-        class="rounded-3xl mb-6 w-full h-[340px] object-cover"
-      />
+    <a href="#" class="text-center">
+      <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=900"
+           class="rounded-3xl h-[320px] w-full object-cover mb-6"/>
       <h3 class="text-2xl font-semibold">지중해 크루즈</h3>
       <p class="text-gray-500 mt-2">스페인 · 이탈리아 · 프랑스</p>
-
-      <div class="mt-4 inline-block px-4 py-1 rounded-full bg-blue-50 text-blue-700 text-sm">
-        추천 월 · 4월 ~ 6월 / 9월 ~ 10월
-      </div>
     </a>
 
-    <!-- 중동 크루즈 -->
-    <a href="middleeast.html" class="block text-center hover:opacity-90 transition">
-      <img
-        src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=900"
-        class="rounded-3xl mb-6 w-full h-[340px] object-cover"
-      />
+    <a href="#" class="text-center">
+      <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=900"
+           class="rounded-3xl h-[320px] w-full object-cover mb-6"/>
       <h3 class="text-2xl font-semibold">중동 크루즈</h3>
       <p class="text-gray-500 mt-2">두바이 · 아부다비 · 오만</p>
-
-      <div class="mt-4 inline-block px-4 py-1 rounded-full bg-yellow-50 text-yellow-700 text-sm">
-        추천 월 · 11월 ~ 3월
-      </div>
     </a>
 
-    <!-- 아시아 크루즈 -->
-    <a href="asia.html" class="block text-center hover:opacity-90 transition">
-      <img
-        src="https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=900"
-        class="rounded-3xl mb-6 w-full h-[340px] object-cover"
-      />
+    <a href="#" class="text-center">
+      <img src="https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=900"
+           class="rounded-3xl h-[320px] w-full object-cover mb-6"/>
       <h3 class="text-2xl font-semibold">아시아 크루즈</h3>
       <p class="text-gray-500 mt-2">오키나와 · 일본 · 동아시아</p>
-
-      <div class="mt-4 inline-block px-4 py-1 rounded-full bg-green-50 text-green-700 text-sm">
-        추천 월 · 3월 ~ 5월 / 10월
-      </div>
     </a>
-
- <div class="text-center mt-12">
-
-  <!-- 메인 타이틀 -->
-</div>
-<!-- 여행 리뷰 -->
-<section class="bg-gray-50 py-24">
-  <div class="max-w-6xl mx-auto px-6">
-    
-    <h2 class="text-3xl font-bold mb-12 text-center">
-      다녀온 분들의 이야기
-    </h2>
-
-    <div class="flex gap-6 overflow-x-auto pb-4">
-
-      <!-- 리뷰 카드 1 -->
-      <div class="min-w-[300px] bg-white rounded-3xl shadow overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800"
-          class="w-full h-[200px] object-cover"
-        />
-        <div class="p-6">
-          <p class="text-gray-700 mb-4">
-            “패키지처럼 쫓기지 않아서 정말 편했어요.”
-          </p>
-          <p class="text-sm text-gray-400">
-            40대 부부 · 지중해 크루즈
-          </p>
-        </div>
-      </div>
-
-      <!-- 리뷰 카드 2 -->
-      <div class="min-w-[300px] bg-white rounded-3xl shadow overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=800"
-          class="w-full h-[200px] object-cover"
-        />
-        <div class="p-6">
-          <p class="text-gray-700 mb-4">
-            “부모님이 제일 만족하신 여행이었어요.”
-          </p>
-          <p class="text-sm text-gray-400">
-            가족 여행 · 중동 크루즈
-          </p>
-        </div>
-      </div>
-
-      <!-- 리뷰 카드 3 -->
-      <div class="min-w-[300px] bg-white rounded-3xl shadow overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=800"
-          class="w-full h-[200px] object-cover"
-        />
-        <div class="p-6">
-          <p class="text-gray-700 mb-4">
-            “자유여행은 무섭고, 이 방식이 딱이었어요.”
-          </p>
-          <p class="text-sm text-gray-400">
-            30대 직장인 · 아시아 크루즈
-          </p>
-        </div>
-      </div>
-
-      <!-- 리뷰 카드 4 -->
-      <div class="min-w-[300px] bg-white rounded-3xl shadow overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800"
-          class="w-full h-[200px] object-cover"
-        />
-        <div class="p-6">
-          <p class="text-gray-700 mb-4">
-            “이동 걱정 없이 여행에만 집중할 수 있었어요.”
-          </p>
-          <p class="text-sm text-gray-400">
-            부부 여행 · 지중해 크루즈
-          </p>
-        </div>
-      </div>
-
-    </div>
-
   </div>
 </section>
-<p class="text-center mt-12 text-lg">
+
+<!-- 리뷰 -->
+<section class="bg-gray-50 py-24">
+  <h2 class="text-3xl font-bold text-center mb-12">다녀온 분들의 이야기</h2>
+
+  <div class="max-w-6xl mx-auto px-6 flex gap-6 overflow-x-auto">
+    <div class="min-w-[300px] bg-white rounded-3xl shadow">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800"
+           class="h-[200px] w-full object-cover rounded-t-3xl"/>
+      <div class="p-6">
+        <p>“패키지처럼 쫓기지 않아서 정말 편했어요.”</p>
+        <p class="text-sm text-gray-400 mt-2">40대 부부 · 지중해</p>
+      </div>
+    </div>
+
+    <div class="min-w-[300px] bg-white rounded-3xl shadow">
+      <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800"
+           class="h-[200px] w-full object-cover rounded-t-3xl"/>
+      <div class="p-6">
+        <p>“부모님이 제일 만족하신 여행이에요.”</p>
+        <p class="text-sm text-gray-400 mt-2">가족 여행 · 중동</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 안내 문구 -->
+<p class="text-center text-lg mt-16">
   나에게 맞는 크루즈인지 확인해보세요 ↓
 </p>
 
-
-
 <!-- 혜택 -->
-<section class="bg-gray-50 py-20">
+<section class="py-20">
   <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-4 gap-10 text-center">
     <div>
-      <div class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center text-3xl shadow">🧭</div>
-      <p class="mt-4 text-lg">전일 인솔 동행</p>
+      <div class="w-20 h-20 mx-auto bg-gray-100 rounded-full flex items-center justify-center text-3xl">🧭</div>
+      <p class="mt-4">전일 인솔 동행</p>
     </div>
     <div>
-      <div class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center text-3xl shadow">🛡️</div>
-      <p class="mt-4 text-lg">2억 여행자 보험</p>
+      <div class="w-20 h-20 mx-auto bg-gray-100 rounded-full flex items-center justify-center text-3xl">🛡️</div>
+      <p class="mt-4">2억 여행자 보험</p>
     </div>
     <div>
-      <div class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center text-3xl shadow">🚫</div>
-      <p class="mt-4 text-lg">노쇼핑 · 노옵션</p>
+      <div class="w-20 h-20 mx-auto bg-gray-100 rounded-full flex items-center justify-center text-3xl">🚫</div>
+      <p class="mt-4">노쇼핑 · 노옵션</p>
     </div>
     <div>
-      <div class="w-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center text-3xl shadow">🧳</div>
-      <p class="mt-4 text-lg">자유여행 기반</p>
+      <div class="w-20 h-20 mx-auto bg-gray-100 rounded-full flex items-center justify-center text-3xl">🧳</div>
+      <p class="mt-4">자유여행 기반</p>
     </div>
   </div>
 </section>
-<!doctype html>
-<html lang="ko">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>프라이빗 크루즈 클럽 | 총비용 계산</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
 
-<body class="bg-white text-gray-900">
-  <main class="max-w-3xl mx-auto px-6 py-16">
-    <header class="mb-10">
-      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">
-        여행 총비용 계산기
-      </h1>
-      <p class="text-gray-500 mt-3 text-base md:text-lg">
-        크루즈 · 항공료 · 지상비를 원화 기준으로 입력하면, 아래에서 총 합계가 자동 계산됩니다.
-      </p>
-    </header>
-
-    <!-- 카드 -->
-    <section class="space-y-6">
-      <!-- 크루즈 -->
-      <div class="border rounded-3xl p-6 md:p-7">
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <h2 class="text-xl md:text-2xl font-bold">1) 크루즈</h2>
-            <p class="text-gray-500 mt-2">
-              비회원/멤버/리워드 구조로 계산해 반영하세요.
-            </p>
-          </div>
-
-          <a href="cruise.html"
-             class="shrink-0 inline-flex items-center justify-center rounded-full px-5 py-3 font-bold bg-yellow-400 hover:bg-yellow-300 transition">
-            크루즈 금액 계산하기
-          </a>
-        </div>
-
-        <div class="mt-6 bg-gray-50 rounded-2xl p-5 flex items-center justify-between">
-          <p class="text-gray-600 font-medium">반영된 크루즈 비용</p>
-          <p class="text-2xl md:text-3xl font-extrabold">
-            <span id="cruiseDisplay">0</span><span class="text-base font-bold ml-1">원</span>
-          </p>
-        </div>
-        <p class="text-xs text-gray-400 mt-3 leading-relaxed">
-          * 크루즈 비용은 “크루즈 계산” 페이지에서 계산 후 자동 반영됩니다.
-        </p>
-      </div>
-
-      <!-- 항공료 -->
-      <div class="border rounded-3xl p-6 md:p-7">
-        <h2 class="text-xl md:text-2xl font-bold">2) 항공료</h2>
-        <p class="text-gray-500 mt-2">
-          항공권은 시기/출발지에 따라 변동이 커서 예상 금액을 직접 입력해주세요.
-        </p>
-
-        <div class="mt-5">
-          <label class="block text-sm font-bold text-gray-700 mb-2">항공료 (원)</label>
-          <input id="flightInput" type="number" inputmode="numeric" placeholder="예: 1200000"
-                 class="w-full border rounded-2xl p-4 text-lg outline-none focus:ring-2 focus:ring-yellow-300"
-                 oninput="recalcTotal()" />
-          <p class="text-xs text-gray-400 mt-2">* 미입력 시 0원으로 계산됩니다.</p>
-        </div>
-      </div>
-
-      <!-- 지상비 -->
-      <div class="border rounded-3xl p-6 md:p-7">
-        <h2 class="text-xl md:text-2xl font-bold">3) 지상비</h2>
-        <p class="text-gray-500 mt-2">
-          호텔·현지 투어·교통비 등 지상 비용을 예상해 입력해주세요.
-        </p>
-
-        <div class="mt-5">
-          <label class="block text-sm font-bold text-gray-700 mb-2">지상비 (원)</label>
-          <input id="landInput" type="number" inputmode="numeric" placeholder="예: 800000"
-                 class="w-full border rounded-2xl p-4 text-lg outline-none focus:ring-2 focus:ring-yellow-300"
-                 oninput="recalcTotal()" />
-          <p class="text-xs text-gray-400 mt-2">* 미입력 시 0원으로 계산됩니다.</p>
-        </div>
-      </div>
-
-      <!-- 총합 -->
-      <div class="rounded-3xl p-7 md:p-8 bg-gradient-to-br from-yellow-50 to-white border">
-        <div class="flex items-center justify-between gap-4">
-          <div>
-            <h3 class="text-lg md:text-xl font-bold text-gray-800">총 여행 예상 비용</h3>
-            <p class="text-gray-500 mt-1 text-sm">
-              크루즈 + 항공료 + 지상비 합계 (원화)
-            </p>
-          </div>
-          <div class="text-right">
-            <p class="text-3xl md:text-4xl font-extrabold">
-              <span id="grandTotal">0</span><span class="text-base font-bold ml-1">원</span>
-            </p>
-          </div>
-        </div>
-
-        <p class="text-xs text-gray-400 mt-4 leading-relaxed">
-          * 본 계산은 이해를 돕기 위한 참고용 시뮬레이션입니다. 실제 비용은 예약 시점/환율/객실 상황 등에 따라 달라질 수 있습니다.
-        </p>
-
-        <div class="mt-6 flex flex-col md:flex-row gap-3">
-          <a href="https://open.kakao.com/o/본인링크"
-             class="w-full md:w-auto inline-flex justify-center rounded-full px-6 py-4 font-extrabold bg-gray-900 text-white hover:opacity-90 transition">
-            오픈카톡으로 상담하기
-          </a>
-          <button onclick="resetAll()"
-                  class="w-full md:w-auto inline-flex justify-center rounded-full px-6 py-4 font-bold border hover:bg-gray-50 transition">
-            입력값 초기화
-          </button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    function fmt(n) {
-      return Number(n || 0).toLocaleString('ko-KR');
-    }
-    function num(id) {
-      const v = document.getElementById(id).value;
-      return v === "" ? 0 : Number(v);
-    }
-
-    function loadCruiseFromStorage() {
-      const cruise = Number(localStorage.getItem("cruiseFinalKRW") || 0);
-      document.getElementById("cruiseDisplay").innerText = fmt(cruise);
-      return cruise;
-    }
-
-    function recalcTotal() {
-      const cruise = loadCruiseFromStorage();
-      const flight = num("flightInput");
-      const land = num("landInput");
-      const total = cruise + flight + land;
-      document.getElementById("grandTotal").innerText = fmt(total);
-
-      // 입력값 저장(새로고침 대비)
-      localStorage.setItem("flightKRW", String(flight));
-      localStorage.setItem("landKRW", String(land));
-    }
-
-    function restoreInputs() {
-      const flight = localStorage.getItem("flightKRW");
-      const land = localStorage.getItem("landKRW");
-      if (flight !== null) document.getElementById("flightInput").value = flight;
-      if (land !== null) document.getElementById("landInput").value = land;
-    }
-
-    function resetAll() {
-      localStorage.removeItem("cruiseFinalKRW");
-      localStorage.removeItem("flightKRW");
-      localStorage.removeItem("landKRW");
-      document.getElementById("flightInput").value = "";
-      document.getElementById("landInput").value = "";
-      recalcTotal();
-    }
-
-    // 초기 실행
-    restoreInputs();
-    recalcTotal();
-  </script>
-</body>
-</html>
-
-
-<script>
-function calculate() {
-  const people = Number(document.getElementById("people").value);
-  const price = Number(document.getElementById("nonMemberPrice").value);
-  const rate = Number(document.getElementById("exchangeRate").value);
-  const reward = Number(document.getElementById("reward").value) || 0;
-
-  const singleNotice = document.getElementById("singleNotice");
-  const resultArea = document.getElementById("resultArea");
-
-  if (people === 1) {
-    singleNotice.classList.remove("hidden");
-    resultArea.classList.add("hidden");
-    return;
-  } else {
-    singleNotice.classList.add("hidden");
-    resultArea.classList.remove("hidden");
-  }
-
-  const nonTotal = price * people;
-  const memberTotal = nonTotal * 0.5;
-  const finalTotal = Math.max(memberTotal - reward, 0);
-
-  document.getElementById("nonTotal").innerText = `$${nonTotal.toLocaleString()}`;
-  document.getElementById("memberTotal").innerText = `$${memberTotal.toLocaleString()}`;
-  document.getElementById("finalTotal").innerText = `$${finalTotal.toLocaleString()}`;
-  document.getElementById("krwTotal").innerText =
-    (finalTotal * rate).toLocaleString();
-
-  document.getElementById("barNon").style.width = "100%";
-  document.getElementById("barMember").style.width = "50%";
-  document.getElementById("barFinal").style.width =
-    `${(finalTotal / nonTotal) * 100}%`;
-}
-
-calculate();
-</script>
-
+<!-- CTA -->
+<section class="py-20 text-center">
   <a href="https://open.kakao.com/o/본인링크"
-     class="block mt-10 bg-yellow-400 text-black text-center font-bold py-5 rounded-full text-lg">
-    오픈카톡으로 문의하기
+     class="inline-block bg-yellow-400 px-10 py-5 rounded-full text-lg font-bold hover:bg-yellow-300">
+    오픈카톡으로 상담하기
   </a>
 </section>
 
 <!-- 법적 안내 -->
-<section class="max-w-3xl mx-auto px-6 py-16 text-sm text-gray-400 leading-relaxed">
-  본 페이지는 여행상품을 판매하는 사이트가 아니며,<br>
+<section class="max-w-3xl mx-auto px-6 py-16 text-sm text-gray-400 leading-relaxed text-center">
+  본 페이지는 여행상품 판매 페이지가 아닌<br>
   프라이빗 멤버십 기반 여행 커뮤니티 안내 페이지입니다.<br>
-  여행 실비는 인원 기준 N분의 1로 정산되며,<br>
-  상세 조건은 상담을 통해 안내드립니다.
+  실제 조건은 상담을 통해 안내됩니다.
 </section>
-
-<script>
-function calc() {
-  const base = Number(document.getElementById("base").value);
-  const people = Number(document.getElementById("people").value);
-  const type = document.getElementById("type").value;
-  const reward = Number(document.getElementById("reward").value) || 0;
-
-  if (people === 1) {
-    document.getElementById("single").classList.remove("hidden");
-    document.getElementById("result").innerText = "문의";
-    document.getElementById("save").innerText = "";
-    return;
-  } else {
-    document.getElementById("single").classList.add("hidden");
-  }
-
-  let normalTotal = base * people;
-  let final = normalTotal;
-
-  if (type === "member") final = normalTotal * 0.5;
-  if (type === "reward") final = normalTotal * 0.5 - reward;
-
-  document.getElementById("result").innerText = final.toLocaleString();
-  document.getElementById("save").innerText =
-    `정가 대비 ${ (normalTotal - final).toLocaleString() }만원 절약`;
-}
-calc();
-</script>
 
 </body>
 </html>

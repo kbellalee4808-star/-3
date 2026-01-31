@@ -10,162 +10,74 @@
 <body class="bg-white text-gray-900">
 
 <!-- HERO -->
-<section class="relative h-screen">
-  <img
-    src="https://images.unsplash.com/photo-1544551763-cedf2e1a1f5a?auto=format&fit=crop&w=1600"
-    class="absolute inset-0 w-full h-full object-cover"
-    alt="메가 크루즈"
-  />
-  <div class="absolute inset-0 bg-black/45"></div>
-
-  <div class="relative z-10 h-full flex items-center justify-center text-center px-6">
-    <div class="max-w-4xl">
-      <h1 class="text-white font-extrabold leading-tight
-                 text-4xl sm:text-5xl md:text-6xl">
-        패키지는 답답하고<br>
-        자유여행은 불안할 때
-      </h1>
-
-      <p class="mt-6 text-white/90
-                text-xl sm:text-2xl md:text-3xl font-semibold">
-        짐 풀고, 다시 쌀 필요 없는 여행
-      </p>
-
-      <p class="mt-5 text-white
-                text-lg sm:text-xl md:text-2xl">
-        20만 톤 이상 메가 크루즈에서<br>
-        도시는 자유롭게, 숙소는 그대로
-      </p>
-    </div>
+<section class="relative h-screen bg-cover bg-center"
+         style="background-image:url('/-3/images/cruise.jpg')">
+  <div class="absolute inset-0 bg-black/50 flex flex-col
+              justify-center items-center text-center text-white px-6">
+    <h1 class="text-4xl md:text-6xl font-extrabold">
+      패키지는 답답하고<br>자유여행은 불안할 때
+    </h1>
+    <p class="mt-6 text-xl">
+      짐 풀고, 다시 쌀 필요 없는 여행
+    </p>
+    <p class="mt-3 opacity-90">
+      20만 톤 이상 메가 크루즈에서<br>
+      도시는 자유롭게, 숙소는 그대로
+    </p>
   </div>
 </section>
 
-<!-- WHY -->
-<section class="max-w-4xl mx-auto px-6 py-20 text-center">
-  <h2 class="text-3xl font-bold mb-6">
-    왜 크루즈 여행일까요?
-  </h2>
-  <p class="text-lg leading-relaxed text-gray-700">
-    패키지처럼 쫓기지 않고,<br>
-    자유여행처럼 모든 걸 혼자 결정하지 않아도 됩니다.<br><br>
-    이동은 크루즈가 대신하고,<br>
-    우리는 도시를 걸으며 여행합니다.
-  </p>
-</section>
-
-<!-- ROUTES -->
+<!-- 추천 크루즈 -->
 <section class="max-w-6xl mx-auto px-6 py-24">
   <h2 class="text-3xl font-bold text-center mb-16">
-    추천 크루즈 여행
+    추천 크루즈 루트
   </h2>
 
   <div class="grid md:grid-cols-3 gap-12">
 
-    <!-- Mediterranean -->
-    <a href="mediterranean.html" class="text-center hover:opacity-90 transition">
-      <img
-        src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1200"
-        class="rounded-3xl w-full h-[320px] object-cover mb-6"
-        alt="지중해"
-      />
+    <div class="text-center">
+      <img src="/-3/images/med.jpg"
+           class="rounded-3xl h-[300px] w-full object-cover mb-6"/>
       <h3 class="text-2xl font-semibold">지중해 크루즈</h3>
-      <p class="text-gray-500 mt-2">
-        바르셀로나 · 로마 · 프랑스 남부
-      </p>
-    </a>
+      <p class="text-gray-500">스페인 · 이탈리아 · 프랑스</p>
+    </div>
 
-    <!-- Middle East -->
-    <a href="middleeast.html" class="text-center hover:opacity-90 transition">
-      <img
-        src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1200"
-        class="rounded-3xl w-full h-[320px] object-cover mb-6"
-        alt="중동"
-      />
+    <div class="text-center">
+      <img src="/-3/images/middle.jpg"
+           class="rounded-3xl h-[300px] w-full object-cover mb-6"/>
       <h3 class="text-2xl font-semibold">중동 크루즈</h3>
-      <p class="text-gray-500 mt-2">
-        두바이 · 아부다비 · 오만
-      </p>
-    </a>
+      <p class="text-gray-500">두바이 · 아부다비 · 오만</p>
+    </div>
 
-    <!-- Asia -->
-    <a href="asia.html" class="text-center hover:opacity-90 transition">
-      <img
-        src="https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=1200"
-        class="rounded-3xl w-full h-[320px] object-cover mb-6"
-        alt="아시아"
-      />
+    <div class="text-center">
+      <img src="/-3/images/asia.jpg"
+           class="rounded-3xl h-[300px] w-full object-cover mb-6"/>
       <h3 class="text-2xl font-semibold">아시아 크루즈</h3>
-      <p class="text-gray-500 mt-2">
-        오키나와 · 일본 · 동아시아
-      </p>
-    </a>
-
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section class="bg-gray-50 py-24">
-  <h2 class="text-3xl font-bold text-center mb-12">
-    다녀온 분들의 이야기
-  </h2>
-
-  <div class="flex gap-6 overflow-x-auto px-6 max-w-6xl mx-auto">
-
-    <div class="min-w-[300px] bg-white rounded-3xl shadow">
-      <img
-        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800"
-        class="h-[200px] w-full object-cover rounded-t-3xl"
-      />
-      <div class="p-6">
-        “패키지는 너무 바쁘고, 이 여행은 딱 좋았어요.”
-        <p class="text-sm text-gray-400 mt-3">
-          40대 부부 · 지중해
-        </p>
-      </div>
+      <p class="text-gray-500">오키나와 · 일본 · 동아시아</p>
     </div>
 
-    <div class="min-w-[300px] bg-white rounded-3xl shadow">
-      <img
-        src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800"
-        class="h-[200px] w-full object-cover rounded-t-3xl"
-      />
-      <div class="p-6">
-        “부모님이 가장 좋아하신 여행이었어요.”
-        <p class="text-sm text-gray-400 mt-3">
-          가족 여행 · 중동
-        </p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- BENEFITS -->
-<section class="py-20">
-  <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-4 gap-10 text-center">
-    <div>🧭<p class="mt-3">전일 인솔 동행</p></div>
-    <div>🛡️<p class="mt-3">2억 여행자 보험</p></div>
-    <div>🚫<p class="mt-3">노쇼핑 · 노옵션</p></div>
-    <div>🧳<p class="mt-3">자유여행 기반</p></div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="py-20 text-center">
-  <a
-    href="cruise.html"
-    class="inline-block bg-yellow-400 px-10 py-5 rounded-full
-           text-xl font-extrabold hover:bg-yellow-300 transition"
-  >
-    크루즈 여행 비용 확인하기
+  <a href="https://open.kakao.com/o/본인링크"
+     class="inline-block bg-yellow-400 px-12 py-6
+            rounded-full text-xl font-extrabold hover:bg-yellow-300 transition">
+    💬 오픈카톡으로 문의하기
   </a>
+  <p class="mt-6 text-lg text-gray-700">
+    이 여행이 나에게 맞는지, 편하게 이야기 나눠보세요
+  </p>
 </section>
 
-<!-- LEGAL -->
-<section class="max-w-3xl mx-auto px-6 py-16 text-sm text-gray-400 text-center leading-relaxed">
-  본 페이지는 여행상품 판매 페이지가 아니며,<br>
-  프라이빗 멤버십 기반 여행 커뮤니티 안내용 페이지입니다.<br>
-  실제 일정 및 비용은 상담을 통해 안내됩니다.
+<!-- 법적 안내 -->
+<section class="max-w-3xl mx-auto px-6 pb-16
+                text-sm text-gray-400 leading-relaxed text-center">
+  본 페이지는 여행상품을 판매하는 사이트가 아닙니다.<br><br>
+  프라이빗 멤버십 기반 여행 커뮤니티로,<br>
+  여행에 필요한 실비(크루즈·지상비 등)를<br>
+  참여 인원 기준으로 나누어 정산합니다.
 </section>
 
 </body>

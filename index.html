@@ -186,41 +186,178 @@
   </div>
 </section>
 
-<!-- 계산기 -->
-<section id="calc" class="max-w-md mx-auto px-6 py-24">
-  <h3 class="text-3xl font-bold text-center mb-10">여행 비용 계산기</h3>
+<!-- ================= 계산기 섹션 ================= -->
+<section id="calc" class="max-w-3xl mx-auto px-6 py-24">
+  
+  <h2 class="text-3xl font-bold text-center mb-4">
+    같은 크루즈, 다른 비용 구조
+  </h2>
+  <p class="text-center text-gray-500 mb-12">
+    멤버십과 리워드에 따라 구조가 달라집니다
+  </p>
 
-  <label class="text-lg">비회원가 (1인 기준 / 만원)</label>
-  <input id="base" type="number" value="800" oninput="calc()"
-         class="w-full border p-4 rounded-xl mb-6 text-lg">
+  <!-- 입력 영역 -->
+  <div class="space-y-6">
 
-  <label class="text-lg">여행 인원</label>
-  <select id="people" onchange="calc()" class="w-full border p-4 rounded-xl mb-6 text-lg">
-    <option value="1">1인</option>
-    <option value="2" selected>2인</option>
-    <option value="3">3인</option>
-    <option value="4">4인</option>
-  </select>
+    <!-- 인원 -->
+    <div>
+      <label class="block text-lg font-medium mb-2">여행 인원</label>
+      <select id="people" onchange="calculate()" class="w-full border p-4 rounded-xl">
+        <option value="1">1인</option>
+        <option value="2" selected>2인</option>
+        <option value="3">3인</option>
+        <option value="4">4인</option>
+      </select>
+    </div>
 
-  <label class="text-lg">이용 방식</label>
-  <select id="type" onchange="calc()" class="w-full border p-4 rounded-xl mb-6 text-lg">
-    <option value="normal">비회원 (100%)</option>
-    <option value="member">회원 (50%)</option>
-    <option value="reward">회원 + 리워드</option>
-  </select>
+    <!-- 비회원가 -->
+    <div>
+      <label class="block text-lg font-medium mb-2">
+        비회원 기준 크루즈 비용 (1인 / USD)
+      </label>
+      <input id="nonMemberPrice" type="number" value="1600"
+             oninput="calculate()"
+             class="w-full border p-4 rounded-xl">
+      <p class="text-sm text-gray-500 mt-1">
+        일반 예약 시 적용되는 기준 금액입니다
+      </p>
+    </div>
 
-  <label class="text-lg">리워드 사용 (만원)</label>
-  <input id="reward" type="number" value="0" oninput="calc()"
-         class="w-full border p-4 rounded-xl mb-6 text-lg">
+    <!-- 환율 -->
+    <div>
+      <label class="block text-lg font-medium mb-2">
+        적용 환율 (USD → KRW)
+      </label>
+      <input id="exchangeRate" type="number" value="1350"
+             oninput="calculate()"
+             class="w-full border p-4 rounded-xl">
+      <p class="text-sm text-gray-500 mt-1">
+        기준: 네이버 고시환율 참고 (실제 결제 시점과 다를 수 있습니다)
+      </p>
+    </div>
 
-  <div class="bg-gray-100 p-8 rounded-2xl text-center">
-    <p class="text-lg text-gray-500 mb-2">예상 총 여행 비용</p>
-    <p class="text-5xl font-bold mb-2"><span id="result">-</span> 만원</p>
-    <p id="save" class="text-sm text-gray-500"></p>
-    <p id="single" class="text-sm text-gray-500 mt-2 hidden">
-      * 1인 이용 시 싱글차지 별도 문의
-    </p>
+    <!-- 리워드 -->
+    <div>
+      <label class="block text-lg font-medium mb-2">
+        보유 리워드 적용 (USD)
+      </label>
+      <input id="reward" type="number" value="0"
+             oninput="calculate()"
+             class="w-full border p-4 rounded-xl">
+      <p class="text-sm text-gray-500 mt-1">
+        보유 중인 리워드가 있다면 입력해보세요
+      </p>
+    </div>
   </div>
+
+  <!-- 결과 영역 -->
+  <div class="mt-16 space-y-8">
+
+    <!-- 싱글차지 안내 -->
+    <div id="singleNotice" class="hidden text-center text-gray-600 text-lg">
+      1인 이용 시 크루즈 특성상 싱글차지가 적용됩니다.<br>
+      정확한 금액은 오픈카톡 상담으로 안내드립니다.
+    </div>
+
+    <!-- 그래픽 비교 -->
+    <div id="resultArea" class="space-y-6">
+
+      <!-- 비회원 -->
+      <div>
+        <p class="mb-2">비회원 기준 비용</p>
+        <div class="flex items-center gap-4">
+          <div class="flex-1 bg-gray-200 rounded-full h-5">
+            <div id="barNon" class="h-5 rounded-full bg-gray-200"></div>
+          </div>
+          <span id="nonTotal">$0</span>
+        </div>
+      </div>
+
+      <!-- 회원 -->
+      <div>
+        <p class="mb-2">멤버십 적용 시</p>
+        <div class="flex items-center gap-4">
+          <div class="flex-1 bg-blue-100 rounded-full h-5">
+            <div id="barMember" class="h-5 rounded-full bg-blue-200"></div>
+          </div>
+          <span id="memberTotal">$0</span>
+        </div>
+      </div>
+
+      <!-- 리워드 -->
+      <div>
+        <p class="mb-2">리워드 적용 후 예상 금액</p>
+        <div class="flex items-center gap-4">
+          <div class="flex-1 bg-green-100 rounded-full h-5">
+            <div id="barFinal" class="h-5 rounded-full bg-green-200"></div>
+          </div>
+          <span id="finalTotal">$0</span>
+        </div>
+      </div>
+
+      <!-- 원화 -->
+      <div class="text-center text-xl font-semibold mt-6">
+        ≈ <span id="krwTotal">0</span> 원
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="text-center mt-12">
+    <p class="mb-4 text-gray-600">
+      이 구조가 나에게 맞는지 확인해보세요
+    </p>
+    <a href="https://open.kakao.com/o/본인링크"
+       class="inline-block bg-yellow-400 px-10 py-4 rounded-full font-bold">
+      오픈카톡으로 구조 상담받기
+    </a>
+  </div>
+
+  <!-- 법적 문구 -->
+  <p class="text-xs text-gray-400 mt-10 leading-relaxed">
+    본 계산기는 비용 구조 이해를 돕기 위한 참고용 시뮬레이션입니다.<br>
+    실제 적용 금액은 환율, 객실 상황, 멤버십 조건에 따라 달라질 수 있으며<br>
+    모든 기준은 가입 후 공식 홈페이지 안내를 따릅니다.
+  </p>
+</section>
+
+<script>
+function calculate() {
+  const people = Number(document.getElementById("people").value);
+  const price = Number(document.getElementById("nonMemberPrice").value);
+  const rate = Number(document.getElementById("exchangeRate").value);
+  const reward = Number(document.getElementById("reward").value) || 0;
+
+  const singleNotice = document.getElementById("singleNotice");
+  const resultArea = document.getElementById("resultArea");
+
+  if (people === 1) {
+    singleNotice.classList.remove("hidden");
+    resultArea.classList.add("hidden");
+    return;
+  } else {
+    singleNotice.classList.add("hidden");
+    resultArea.classList.remove("hidden");
+  }
+
+  const nonTotal = price * people;
+  const memberTotal = nonTotal * 0.5;
+  const finalTotal = Math.max(memberTotal - reward, 0);
+
+  document.getElementById("nonTotal").innerText = `$${nonTotal.toLocaleString()}`;
+  document.getElementById("memberTotal").innerText = `$${memberTotal.toLocaleString()}`;
+  document.getElementById("finalTotal").innerText = `$${finalTotal.toLocaleString()}`;
+  document.getElementById("krwTotal").innerText =
+    (finalTotal * rate).toLocaleString();
+
+  document.getElementById("barNon").style.width = "100%";
+  document.getElementById("barMember").style.width = "50%";
+  document.getElementById("barFinal").style.width =
+    `${(finalTotal / nonTotal) * 100}%`;
+}
+
+calculate();
+</script>
 
   <a href="https://open.kakao.com/o/본인링크"
      class="block mt-10 bg-yellow-400 text-black text-center font-bold py-5 rounded-full text-lg">

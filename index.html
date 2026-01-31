@@ -3,88 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Private Cruise Club</title>
 
-  <!-- Tailwind (디자인 도구) -->
+  <title>프라이빗 크루즈 여행</title>
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-white text-gray-900">
 
-  <main class="max-w-md mx-auto px-6 py-12">
-
-    <!-- ================= 상단 소개 ================= -->
-    <section class="mb-10">
-      <p class="text-sm text-gray-400 mb-3">PRIVATE CRUISE CLUB</p>
-      <h1 class="text-2xl font-bold leading-snug">
-        크루즈를 타는 여행이 아니라<br/>
-        크루즈로 사는 선택
+<!-- ================= HERO ================= -->
+<section class="relative">
+  <img
+    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600"
+    class="w-full h-[70vh] object-cover"
+  />
+  <div class="absolute inset-0 bg-black/40 flex items-center justify-center text-center px-6">
+    <div class="text-white max-w-xl">
+      <h1 class="text-3xl md:text-4xl font-bold leading-snug mb-4">
+        패키지는 지겹고<br/>
+        자유여행은 불안한 당신에게
       </h1>
-      <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-        같은 크루즈,<br/>
-        누군가는 정가로 예약하고<br/>
-        누군가는 멤버십으로 다르게 갑니다.
+      <p class="text-sm md:text-base opacity-90 mb-6">
+        설계는 되어 있지만<br/>일정은 자유로운 프라이빗 크루즈 여행
       </p>
-    </section>
+      <a href="#calc" class="inline-block bg-yellow-400 text-black font-bold px-8 py-4 rounded-full">
+        내 기준으로 확인하기
+      </a>
+    </div>
+  </div>
+</section>
 
-    <!-- ================= 이미지 ================= -->
-    <section class="mb-10">
-      <img 
-        src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900"
-        alt="Cruise"
-        class="rounded-xl"
-      />
-    </section>
+<!-- ================= 설명 ================= -->
+<section class="max-w-3xl mx-auto px-6 py-16">
+  <h2 class="text-xl font-bold mb-4">프라이빗 크루즈란?</h2>
+  <p class="text-gray-600 leading-relaxed">
+    단체 패키지처럼 따라다니지 않고,<br/>
+    자유여행처럼 혼자 고민하지 않는 방식.<br/><br/>
+    크루즈라는 안전한 공간 안에서<br/>
+    각자의 속도로 여행하는 새로운 선택입니다.
+  </p>
+</section>
 
-    <!-- ================= 크루즈 계산기 ================= -->
-    <section class="bg-gray-50 rounded-2xl p-6 mb-12">
-      <h2 class="text-lg font-bold mb-6 text-center">
-        나의 크루즈 예상 비용
-      </h2>
+<!-- ================= 여행 루트 ================= -->
+<section class="max-w-5xl mx-auto px-6 py-16">
+  <h3 class="text-lg font-bold mb-8 text-center">추천 크루즈 루트</h3>
 
-      <!-- 인원 -->
-      <div class="mb-6">
-        <label class="block text-sm text-gray-500 mb-2">
-          여행 인원
-        </label>
-        <select 
-          id="people"
-          onchange="calculate()"
-          class="w-full p-4 rounded-xl border focus:outline-none">
-          <option value="1">1명</option>
-          <option value="2" selected>2명</option>
-          <option value="3">3명</option>
-          <option value="4">4명</option>
-        </select>
-      </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <img src="https://images.unsplash.com/photo-1526481280691-3d6c6b8d8b1b?auto=format&fit=crop&w=800" class="rounded-xl"/>
+    <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?auto=format&fit=crop&w=800" class="rounded-xl"/>
+    <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=800" class="rounded-xl"/>
+  </div>
 
-      <!-- 멤버십 -->
-      <div class="mb-8">
-        <label class="block text-sm text-gray-500 mb-2">
-          예약 방식
-        </label>
-        <div class="flex gap-3">
-          <button 
-            id="memberBtn"
-            onclick="setMember(true)"
-            class="flex-1 py-3 rounded-xl bg-gray-900 text-white font-semibold">
-            멤버십
-          </button>
-          <button 
-            id="nonMemberBtn"
-            onclick="setMember(false)"
-            class="flex-1 py-3 rounded-xl border text-gray-500 font-semibold">
-            일반 예약
-          </button>
-        </div>
-      </div>
+  <p class="text-sm text-gray-500 text-center mt-6">
+    서부·동부 지중해 / 두바이 / 아시아 / 호주 크루즈 운영
+  </p>
+</section>
 
-      <!-- 결과 -->
-      <div class="text-center">
-        <p class="text-sm text-gray-400 mb-1">
-          1인 기준 예상 크루즈 비용
-        </p>
-        <p class="text-3xl font-bold">
-          <span id="price">350</span>만원
-        </p>
-        <p class="text-xs text-gray-400 mt-3 leading
+<!-- ================= 혜택 ================= -->
+<section class="bg-gray-50 py-16">
+  <div class="max-w-4xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    <div>🧭<p class="mt-2 text-sm">전일 인솔 동행</p></div>
+    <div>🛡️<p class="mt-2 text-sm">2억 여행자보험</p></div>
+    <div>🚫<p class="mt-2 text-sm">노쇼핑 / 노옵션</p></div>
+    <div>🧳<p class="mt-2 text-sm">자유여행 기반</p></div>
+  </div>
+</section>
+
+<!-- ================= 계산기 ================= -->
+<section id="calc" class="max-w-md mx-auto px-6 py-20">
+  <h3 class="text-lg font-bold mb-6 text-center">여행 비용 계산기</h3>
+
+  <label class="text-sm">여행 인원</label>
+  <select id="people" onchange="calc()" class="w-full border p-4 rounded-xl mb-4">
+    <option value="1">1인</option>
+    <option value="2" selected>2인</option>
+    <option value="3">3인</option>
+    <option value="4">4인</option>
+  </select>
+
+  <label class="text-sm">이용 방식</label>
+  <select id="type" onchange="calc()" class="w-full border p-4 rounded-xl mb-6">
+    <option value="normal">비회원 (정가)</option>
+    <option value="member">회원 (50% 할인)</option>
+    <option value="reward">회원 + 리워드</option>
+  </select>
+
+  <input
+    id="reward"
+    type="number"
+    placeholder="리워드 금액 (만원)"
+    oninput="calc()"
+    class="w-full border p-4 rounded-xl mb-6"
+  />
+
+  <div class="bg-gray-100 p-6 rounded-xl text-center">
+    <p class="text-sm text-gray-500 mb-2">예상 여행 비용</p>
+    <p class="text-3xl font-bold"><span id="result">-</span> 만원</p>
+    <p id="single" class="text-xs text-gray-500 mt-2 hidden">
+      * 1인 이용 시 싱글차지 별도 문의
+    </p>
+  </div>
+
+  <a
+    href="https://open.kakao.com/o/본인링크"
+    class="block mt-8 bg-yellow-400 text-black text-center font-bold py-4 rounded-full"
+  >
+    오픈카톡으로 문의하기
+  </a>
+</section>
+
+<!-- ================= 법적 안내 ================= -->
+<section class="max-w-3xl mx-auto px-6 py-12 text-xs text-gray-400 leading-relaxed">
+  본 페이지는 여행상품 판매 사이트가 아니며,
+  프라이빗 멤버십 기반 여행 커뮤니티 안내 페이지입니다.
+  여행 실비는 인원 기준 N분의 1로 정산되며,
+  상세 조건은 상담 후 안내드립니다.
+</section>
+
+<script>
+function calc() {
+  const people = Number(document.getElementById("people").value);
+  const type = document.getElementById("type").value;
+  const reward = Number(document.getElementById("reward").value) || 0;
+
+  const base = 800;
+  let price = base;
+
+  if (people === 1) {
+    document.getElementById("single").classList.remove("hidden");
+    document.getElementById("result").innerText = "문의 필요";
+    return;
+  } else {
+    document.getElementById("single").classList.add("hidden");
+  }
+
+  if (type === "member") price = base * 0.5;
+  if (type === "reward") price = base * 0.5 - reward;
+
+  document.getElementById("result").innerText = price * people;
+}
+calc();
+</script>
+
+</body>
+</html>

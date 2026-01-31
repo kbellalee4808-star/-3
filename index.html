@@ -5,43 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>프라이빗 크루즈 여행</title>
   <script src="https://cdn.tailwindcss.com"></script>
-</head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>프라이빗 크루즈 여행</title>
 
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 👇 여기부터 추가 -->
+  <style>
+    .hero {
+      height: 100vh;
+      background-image: url('https://images.unsplash.com/photo-1544551763-cedf2e1a1f5a');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .hero .sub {
+      font-size: 1.4rem;
+      margin-top: 20px;
+    }
+
+    .hero .desc {
+      font-size: 1.1rem;
+      margin-top: 12px;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero .sub {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+  <!-- 👆 여기까지 -->
+</head>
+  
 <body class="bg-white text-gray-900">
 
 <!-- HERO -->
-<section class="relative h-screen w-full">
-  <!-- 메가 크루즈 배경 -->
-  <img
-    src="mega-cruise.jpg"
-    alt="20만 톤 이상 메가 크루즈"
-    class="absolute inset-0 w-full h-full object-cover"
-  />
-
-  <!-- 오버레이 -->
-  <div class="absolute inset-0 bg-black/50"></div>
-
-  <!-- 텍스트 -->
-  <div class="relative z-10 flex h-full items-center justify-center text-center px-6">
-    <div class="max-w-4xl">
-      <h1 class="text-white font-extrabold leading-tight
-                 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-        패키지는 답답하고<br>
-        자유여행은 불안할 때
-      </h1>
-      <p class="mt-6 text-white/90
-                text-xl sm:text-2xl md:text-3xl font-semibold">
-        짐 풀고, 다시 쌀 필요 없는 여행
-      </p>
-      <p class="mt-5 text-white
-                text-lg sm:text-xl md:text-2xl">
-        배 안에서는 쉬고,<br class="sm:hidden">
-        도시에서는 자유로운<br>
-        프라이빗 크루즈 여행
-      </p>
-    </div>
+<section class="hero">
+  <div class="hero-overlay">
+    <h1>
+      패키지는 답답하고<br>
+      자유여행은 불안할 때
+    </h1>
+    <p class="sub">
+      짐 풀고, 다시 쌀 필요 없는 여행
+    </p>
+    <p class="desc">
+      20만 톤 이상 메가 크루즈에서<br>
+      도시는 자유롭게, 숙소는 그대로
+    </p>
   </div>
 </section>
+
 
 <!-- 여행지 -->
 <!-- 추천 크루즈 루트 -->
